@@ -1,0 +1,6 @@
+{
+	"extension": { "audio": "wav", "meta": "json" },
+	"snr": { "min": -5.0, "max": 5.0 },
+	"gain": { "min": 0.5, "max": 2.0 },
+	"volume": { "min": 0.01, "max": 0.99 }
+} 
