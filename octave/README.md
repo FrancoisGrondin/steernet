@@ -7,8 +7,11 @@ octave init.m <root_directory>
 ```
 
 ## Simulate room impulse responses
-
-This script can be launched many times in different processes to reduce the task duration. 
+Compile `rir_generator.cpp` into a mex file:
+```
+mkoctfile --mex rir_generator.cpp 
+```
+The `simulate.m` script can be launched many times in different processes to reduce the task duration. 
 There are multiple microphone array geometry (`pair`, `circular`).
 For instance, to generate 1000 RIRs for pair of microphones and save the result in `<root_directory>`:
 
