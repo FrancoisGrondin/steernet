@@ -13,7 +13,7 @@ python3 plan_speech.py --root <root_speech> --json json/speech.json > <speech_me
 Assuming the root directory with generated RIRs correspond to `<root_farfield>` and we want to store the results in `<farfield_meta>`.
 
 ```
-python3 plan_farfield --root <root_farfield> --json json/farfield.json > <farfield_meta>
+python3 plan_farfield.py --root <root_farfield> --json json/farfield.json > <farfield_meta>
 ```
 
 #### 1.3 Generate list of audio files
