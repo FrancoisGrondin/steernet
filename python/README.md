@@ -1,3 +1,11 @@
+## Python modules required
+```
+PyTorch
+NumPy
+libROSA
+progressbar2
+```
+
 ## 1. Prepare data for training
 
 #### 1.1 Generate list of speech files
