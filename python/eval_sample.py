@@ -12,11 +12,12 @@ parser.add_argument('--audio', default='', type=str, help='Meta for audio')
 parser.add_argument('--json', default='', type=str, help='JSON of parameters')
 parser.add_argument('--model_src', default='', type=str, help='Model to start training from')
 parser.add_argument('--index', default=0, type=int, help='Index of element in dataset')
+parser.add_argument('--scratch_directory', default=None, type=str, help='Directory to store temporary files')
 args = parser.parse_args()
 
 # Dataset
 
-dataset = Pair(file_meta=args.audio, file_json=args.json)
+dataset = Pair(file_meta=args.audio, file_json=args.json, dir_scratch=args.scratch_directory)
 
 # Model
 

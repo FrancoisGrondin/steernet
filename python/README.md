@@ -47,19 +47,23 @@ python3 train_init.py --json json/features.json --model_dst <model_init>
 Train over one epoch a previous model `<model_prev>` and save the updated version to `<model_next>`.
 
 ```
-python3 train_epochs.py --audio <audio_meta> --json json/features.json --model_src `<model_prev>` --model_dst `<model_next>`
+python3 train_epochs.py --audio <audio_meta> --json json/features.json --model_src <model_prev> --model_dst <model_next>
 ```
 
 ## Evaluate with model
 
 #### Evaluate a single sample and show result
 
-Evaluate the sample at index `<sample_index>` from the dataset `<audio_meta>` using the trained model saved in the file `<model_trained>`
+Evaluate the sample at index `<sample_index>` from the dataset `<audio_meta>` using the trained model saved in the file `<model_trained>`.
 
 ```
-python3 eval_sample.py --audio <audio_meta> --json json/features.json --model_src `<model_trained>` --index `<sample_index>`
+python3 eval_sample.py --audio <audio_meta> --json json/features.json --model_src <model_trained> --index <sample_index>
 ```
 
 #### Evaluate loss for the whole dataset
 
-(TBD)
+Evaluate the mean loss for a given model `<model_trained>` and the dataset `<audio_meta>`.
+
+```
+python3 eval_epochs.py --audio <audio_meta> --json json/features.json --model_src <model_trained>
+```
