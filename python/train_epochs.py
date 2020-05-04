@@ -18,6 +18,7 @@ parser.add_argument('--batch_size', default=16, type=int, help='Batch size for t
 parser.add_argument('--shuffle', default=True, type=bool, help='Shuffle training samples')
 parser.add_argument('--num_workers', default=16, type=int, help='Number of workers')
 parser.add_argument('--num_epochs', default=1, type=int, help='Number of epochs')
+parser.add_argument('--scratch_directory', default=None, type=str, help='Directory to store temporary files')
 args = parser.parse_args()
 
 # CUDA
@@ -34,7 +35,7 @@ params = {'batch_size': args.batch_size,
 
 # Dataset
 
-dataset = Pair(file_meta=args.audio, file_json=args.json)
+dataset = Pair(file_meta=args.audio, file_json=args.json, dir_scratch=args.scratch_directory)
 
 # Dataloader
 
