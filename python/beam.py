@@ -54,6 +54,7 @@ def gev(Ys, TTs, IIs):
 	T = Ys.shape[1]
 
 	Ws = np.zeros((M,F), dtype=np.complex64)
+	Gs = np.zeros((M,F), dtype=np.complex64)
 
 	for f in range(0,F):
 
@@ -62,10 +63,23 @@ def gev(Ys, TTs, IIs):
 
 		D, V = la.eigh(TT,II)
 
-		Ws[:,f] = V[:,M-1]
+		fGEV = V[:,M-1]
+
+		Ws[:,f] = fGEV
+
+		fGEV = np.expand_dims(fGEV,1)
+
+		expr1 = np.matmul(np.transpose(np.conj(fGEV)), II)
+		expr2 = np.matmul(II, fGEV)
+		expr3 = np.matmul(expr1, fGEV)
+
+		gBAN = np.sqrt(np.matmul(expr1,expr2)/M) / expr3
+
+		Gs[:,f] = gBAN
 
 	Ws = np.repeat(np.expand_dims(Ws, 1), T, 1)
+	Gs = np.repeat(np.expand_dims(Gs, 1), T, 1)
 
-	Z = np.sum(np.conj(Ws) * Ys, 0)
+	Z = np.sum(Gs * np.conj(Ws) * Ys, 0)
 
 	return Z

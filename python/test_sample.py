@@ -34,7 +34,7 @@ Xs, Ns, Ys, YYs = dataset[args.index]
 M = beam.mask(YYs, net);
 TTs, IIs = beam.cov(Ys, M)
 Zs = beam.gev(Ys, TTs, IIs)
-Cs = beam.gev(Xs[0,:,:], TTs, IIs)
+Cs = Xs[0,0,:,:]
 
 XsTarget = np.transpose(Cs)
 XsMixed = np.transpose(Ys[0,:,:])
