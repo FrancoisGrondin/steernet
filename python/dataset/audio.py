@@ -28,6 +28,7 @@ class Audio(Dataset):
 		gains = audio['farfield']['gain']
 		volume = audio['farfield']['volume']
 		path = audio['farfield']['path']
+		noise = audio['farfield']['noise']
 
 		hs, _ = lr.core.load(path=path, sr=16000, mono=False)
 
@@ -66,6 +67,8 @@ class Audio(Dataset):
 		xs /= np.max(xs)
 		xs *= volume
 
+		ns = noise * np.random.randn(nMics,N)
+
 		tdoas = np.zeros((nSrcs, nMics), dtype=np.float32)
 
 		for iSrc in range(0, nSrcs):
@@ -79,4 +82,4 @@ class Audio(Dataset):
 				mic = mics[iMic] - np.mean(np.array(mics), axis=0)
 				tdoas[iSrc,iMic] = (fs/speed) * np.dot(mic, src)
 
-		return xs, tdoas
+		return xs, ns, tdoas

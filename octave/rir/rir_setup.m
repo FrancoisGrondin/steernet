@@ -1,4 +1,4 @@
-function params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dists, counts)
+function params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dists, counts, noises)
 
     % Select room configuration
 
@@ -51,6 +51,10 @@ function params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dist
         srcs(iSrc,:) = src;
     end
 
+    % Define noise level
+    
+    noise = uniform(noises(1), noises(2));
+    
     params = {};
     params.room = room;
     params.beta = beta;
@@ -58,6 +62,7 @@ function params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dist
     params.fs = fs;
     params.mics = mics;
     params.srcs = srcs;
+    params.noise = noise;
   
 end
 

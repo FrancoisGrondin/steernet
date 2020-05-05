@@ -27,6 +27,8 @@ function json = rir_json(params)
     end
     txt_srcs = [ txt_srcs ' ]' ];
     
-    json = sprintf('{\n\t%s,\n\t%s,\n\t%s,\n\t%s,\n\t%s,\n\t%s\n}', txt_room, txt_beta, txt_speed, txt_fs, txt_mics, txt_srcs);
+    txt_noise = sprintf('"noise": %1.5f', params.noise);    
+    
+    json = sprintf('{\n\t%s,\n\t%s,\n\t%s,\n\t%s,\n\t%s,\n\t%s,\n\t%s\n}', txt_room, txt_beta, txt_speed, txt_fs, txt_mics, txt_srcs, txt_noise);
 
 return

@@ -70,6 +70,6 @@ for local_batch, local_labels in progressbar.progressbar(dataloader):
 		loss = criterion(outputs * spectra, local_labels * spectra)
 		total_loss += loss.item()
 
-mean_loss = total_loss / nBatches
+mean_loss = total_loss / (nBatches * args.batch_size)
 
 print(mean_loss)

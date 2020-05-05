@@ -9,28 +9,26 @@ fs = 16000;
 margin = 0.5;
 dists = [ 1.0 5.0 ];
 counts = [ 2 2 ];
+noises = [ 0.0005 0.002 ];
 
 if strcmp(geometry, 'pair')
     mics = [ -0.5 0.0 0.0 ; 0.5 0.0 0.0 ];
     scales = [ 0.04 0.20 ];
 end
 
-if strcmp(geometry, 'circular')
-    mics = [ +0.0 +0.00 0.0 ; ...
-             +1.0 +0.00 0.0 ; ...
-             +0.5 +0.87 0.0 ; ...
-             -0.5 +0.87 0.0 ; ...
-             -1.0 +0.00 0.0 ; ...
-             -0.5 -0.87 0.0 ; ...
-             +0.5 -0.87 0.0 ];
-    scales = [ 0.05 0.05 ];
+if strcmp(geometry, 'respeaker_usb')
+    mics = [ -0.0229 -0.0229 0.0 ; ...
+             -0.0229 +0.0229 0.0 ; ...
+             +0.0229 -0.0229 0.0 ; ...
+             +0.0229 +0.0299 0.0 ];
+    scales = [ 1.0 1.0 ];
 end
 
 for n = 1:1:N
 
     disp(n);
 
-    params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dists, counts);
+    params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dists, counts, noises);
     json = rir_json(params);
     wave = rir_wave(params);
 

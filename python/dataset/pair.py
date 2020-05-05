@@ -41,13 +41,13 @@ class Pair(Dataset):
 
 		if not os.path.exists(file_scratch):
 
-			xs, tdoas = self.audio[idx]
+			xs, ns, tdoas = self.audio[idx]
 
 			nSrcs = xs.shape[0]
 			nMics = 2
 
-			y1 = 0.001 * np.random.randn(xs.shape[2])
-			y2 = 0.001 * np.random.randn(xs.shape[2])
+			y1 = ns[0,:]
+			y2 = ns[1,:]
 			T1 = 0.0
 			T2 = 0.0
 			I1 = np.abs(lr.core.stft(y1, n_fft=self.frameSize, hop_length=self.hopSize))**2
