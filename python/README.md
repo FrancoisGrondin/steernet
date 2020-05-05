@@ -67,3 +67,11 @@ Evaluate the mean loss for a given model `<model_trained>` and the dataset `<aud
 ```
 python3 eval_epochs.py --audio <audio_meta> --json json/features.json --model_src <model_trained>
 ```
+
+## Perform GEV beamforming
+
+Apply the GEV beamforming for the sample at index `<sample_index>` from the dataset `<audio_meta>` using the trained model saved in the file `<model_trained>`, and save the result in a wave file `<wave_output>`, with three-channels, where channel 1 is the reference signal, channel 2 the mixed signals, and channel 3 the processed signal.
+
+```
+python3 test_sample.py --audio <audio_meta> --json json/features.json --model_src <model_trained> --wave_dst <wave_output> --index <sample_index>
+```
