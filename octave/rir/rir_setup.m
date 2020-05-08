@@ -1,4 +1,4 @@
-function params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dists, counts, noises)
+function params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dists, counts, noises, dtdoa)
 
     % Select room configuration
 
@@ -39,18 +39,33 @@ function params = rir_setup(rooms, betas, speeds, mics, scales, fs, margin, dist
 
     count = randi([counts(1) counts(2)]);
     
-    srcs = zeros(count,3);
-    for iSrc = 1:1:count
-        while true
-            src = [ uniform(margin, room_X - margin) uniform(margin, room_Y - margin) uniform(margin, room_Z - margin) ];
-            r = norm(src-mic0);
-            if (r >= dists(1)) && (r <= dists(2))
-                break
+    while true
+      
+        srcs = zeros(count,3);
+        for iSrc = 1:1:count
+            while true
+                src = [ uniform(margin, room_X - margin) uniform(margin, room_Y - margin) uniform(margin, room_Z - margin) ];
+                r = norm(src-mic0);
+                if (r >= dists(1)) && (r <= dists(2))
+                    break
+                end
             end
+            srcs(iSrc,:) = src;
         end
-        srcs(iSrc,:) = src;
-    end
 
+        srcsNorm = srcs - ones(size(srcs,1),1) * mic0;
+        micsNorm = mics - ones(size(mics,1),1) * mic0;
+        srcsNorm = srcsNorm ./ (sqrt(sum(srcsNorm.^2,2)) * ones(1,3));    
+        taus = (fs/speed) * (micsNorm * srcsNorm');
+
+        dtaus = max(max(abs(taus - taus(:,1) * ones(1,size(taus,2)))));
+        
+        if dtaus >= dtdoa
+            break
+        end
+    
+    end
+    
     % Define noise level
     
     noise = uniform(noises(1), noises(2));

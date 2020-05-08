@@ -15,7 +15,9 @@ def mask(YYs, net):
 
 		YY = torch.from_numpy(YYs[iPair,:,:,:]).unsqueeze(0)
 		MM = net(YY)
-		M += MM.squeeze(0).detach().cpu().numpy()
+		MM = MM.squeeze(0).detach().cpu().numpy()
+		
+		M += MM
 
 	M /= nPairs
 
