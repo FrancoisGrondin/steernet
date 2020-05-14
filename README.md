@@ -16,4 +16,4 @@ Matrix Voice: [[Reference](/audio/matrix_voice_reference.mp3)] [[Mixture](/audio
 
 MiniDSP UMA: [[Reference](/audio/minidsp_uma_reference.mp3)] [[Mixture](/audio/minidsp_uma_mixture.mp3)] [[Separated](/audio/minidsp_uma_separated.mp3)]
 
-Microsoft Kinect: [[Reference](/audio/microsoft_kinect_reference.mp3)] [[Mixture](/audio/microsof_kinect_mixture.mp3)] [[Separated](/audio/microsoft_kinect_separated.mp3)]
+Microsoft Kinect: [[Reference](/audio/microsoft_kinect_reference.mp3)] [[Mixture](/audio/microsoft_kinect_mixture.mp3)] [[Separated](/audio/microsoft_kinect_separated.mp3)]
