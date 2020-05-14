@@ -10,9 +10,9 @@ ReSpeaker USB: [[Reference](/audio/respeaker_usb_reference.mp3)] [[Mixture](/aud
 
 ReSpeaker Core: [[Reference](/audio/respeaker_core_reference.mp3)] [[Mixture](/audio/respeaker_core_mixture.mp3)] [[Separated](/audio/respeaker_core_separated.mp3)]
 
-Matrix Creator: [[Reference](/audio/matrix_creator_reference.mp3)] [[Mixture](/audio/matrix_creator_mixture.mp3)] [[Separated](/audio/matrix_creator_mixture.mp3)]
+Matrix Creator: [[Reference](/audio/matrix_creator_reference.mp3)] [[Mixture](/audio/matrix_creator_mixture.mp3)] [[Separated](/audio/matrix_creator_separated.mp3)]
 
-Matrix Voice: [[Reference](/audio/matrix_voice_reference.mp3)] [[Mixture](/audio/matrix_voice_mixture.mp3)] [[Separated](/audio/matrix_voice_mixture.mp3)]
+Matrix Voice: [[Reference](/audio/matrix_voice_reference.mp3)] [[Mixture](/audio/matrix_voice_mixture.mp3)] [[Separated](/audio/matrix_voice_separated.mp3)]
 
 MiniDSP UMA: [[Reference](/audio/minidsp_uma_reference.mp3)] [[Mixture](/audio/minidsp_uma_mixture.mp3)] [[Separated](/audio/minidsp_uma_separated.mp3)]
 
